@@ -172,8 +172,8 @@ dns:
 #
 # https://github.com/Dreamacro/clash/wiki/premium-core-features
 #
-# tun:
-#   enable: true
+tun:
+  enable: false
 #   stack: system # or gvisor
 #   # dns-hijack:
 #   #   - 8.8.8.8:53
