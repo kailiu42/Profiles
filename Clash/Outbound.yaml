@@ -342,6 +342,13 @@ proxy-groups:
       - DIRECT
       - PROXY
 
+  # Outlook server rules
+  - name: "Outlook"
+    type: select
+    proxies:
+      - DIRECT
+      - PROXY
+
   # Google FCM
   - name: "GoogleFCM"
     type: select
@@ -429,6 +436,13 @@ rule-providers:
     url: https://fastip.icu/shenjiguize/Clash/RuleSet/MyRulesDirect.yaml
     interval: 86400
 
+  Outlook:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Outlook.yaml
+    url: https://fastip.icu/shenjiguize/Clash/RuleSet/Outlook.yaml
+    interval: 86400
+
   GoogleFCM:
     type: http
     behavior: classical
@@ -450,6 +464,9 @@ rules:
 
   # My Rules for direct connection
   - RULE-SET,MyRulesDirect,MyRulesDirect
+
+  # Outlook server Rules
+  - RULE-SET,Outlook,Outlook
 
   # Google FCM
   - RULE-SET,GoogleFCM,GoogleFCM
