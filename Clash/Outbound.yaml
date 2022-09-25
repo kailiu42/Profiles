@@ -302,6 +302,12 @@ proxy-groups:
       - Fastest
       - Fallback
 
+  - name: "FCMPROXY"
+    type: select
+    use:
+      - MyList
+      - MyList2
+
   # 白名单模式 PROXY, 黑名单模式 DIRECT, 不知道别动
   - name: "MATCH"
     type: select
@@ -353,6 +359,7 @@ proxy-groups:
   - name: "GoogleFCM"
     type: select
     proxies:
+      - FCMPROXY
       - PROXY
       - DIRECT
 
