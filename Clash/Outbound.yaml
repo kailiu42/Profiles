@@ -362,9 +362,16 @@ proxy-groups:
   - name: "GoogleFCM"
     type: select
     proxies:
+      - DIRECT
       - FCMPROXY
       - PROXY
-      - DIRECT
+
+  # Google Gmail IMAP & SMTP servers, not the web site
+  - name: "Gmail"
+    type: select
+    use:
+      - MyList
+      - MyList2
 
   # Wechat Push
   - name: "WechatPush"
@@ -460,6 +467,13 @@ rule-providers:
     url: https://fastip.icu/shenjiguize/Clash/RuleSet/Extra/Google/FCM.yaml
     interval: 86400
 
+  Gmail:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Extra/Google/Gmail.yaml
+    url: https://fastip.icu/shenjiguize/Clash/RuleSet/Extra/Google/Gmail.yaml
+    interval: 86400
+
   WechatPush:
     type: http
     behavior: classical
@@ -480,6 +494,9 @@ rules:
 
   # Google FCM
   - RULE-SET,GoogleFCM,GoogleFCM
+
+  # Google Gmail
+  - RULE-SET,Gmail,Gmail
 
   # Wechat Push
   - RULE-SET,WechatPush,WechatPush
