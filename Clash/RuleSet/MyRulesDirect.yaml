@@ -5,3 +5,5 @@ payload:
   - DOMAIN-SUFFIX,updates.suse.com
   - DOMAIN-SUFFIX,suseeuler.com
   - DOMAIN-SUFFIX,suseeuler.net
+  - DOMAIN-SUFFIX,imap.qiye.aliyun.com
+  - DOMAIN-SUFFIX,smtp.qiye.aliyun.com
