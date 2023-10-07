@@ -359,6 +359,13 @@ proxy-groups:
       - DIRECT
       - PROXY
 
+  # LinkedIn
+  - name: "LinkedIn"
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+
   # Google FCM
   - name: "GoogleFCM"
     type: select
@@ -459,6 +466,13 @@ rule-providers:
     behavior: classical
     path: ./RuleSet/Outlook.yaml
     url: https://fastip.icu/shenjiguize/Clash/RuleSet/Outlook.yaml
+    interval: 86400
+
+  LinkedIn:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Extra/LinkedIn.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/LinkedIn/LinkedIn.yaml
     interval: 86400
 
   GoogleFCM:
@@ -584,6 +598,9 @@ rules:
 
   # Outlook server Rules
   - RULE-SET,Outlook,Outlook
+
+  # LinkedIn rules
+  - RULE-SET,LinkedIn,LinkedIn
 
   # Google FCM
   - RULE-SET,GoogleFCM,GoogleFCM
