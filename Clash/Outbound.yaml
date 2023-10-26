@@ -399,7 +399,7 @@ proxy-groups:
     proxies:
       - DIRECT
 
-  - name: "AppleMusic"
+  - name: "Apple"
     type: select
     proxies:
       - PROXY
@@ -693,7 +693,7 @@ rules:
   - RULE-SET,StreamingSE,StreamingSE
 
   # (AppleMusic)
-  - RULE-SET,AppleMusic,AppleMusic
+  - RULE-SET,AppleMusic,Apple
 
   # (DNS Cache Pollution) / (IP Blackhole) / (Region-Restricted Access Denied) / (Network Jitter)
   - RULE-SET,Global,PROXY
@@ -706,8 +706,8 @@ rules:
   - RULE-SET,telegramcidr,PROXY
   - RULE-SET,gfw,PROXY
   - RULE-SET,applications,MyRulesDirect
-  - RULE-SET,icloud,MyRulesDirect
-  - RULE-SET,apple,MyRulesDirect
+  - RULE-SET,icloud,Apple
+  - RULE-SET,apple,Apple
   - RULE-SET,google,MyRulesDirect
 
   # China Area Network
