@@ -107,7 +107,10 @@ dns:
     - '*.cmbchina.com'
     - '*.cmpassport.com'
     - '*.direct'
+    - 'fastip.icu'
     - '*.fastip.icu'
+    - 'pennyos.com'
+    - '*.pennyos.com'
     - '*.icitymobile.mobi'
     - '*.jegotrip.com.cn'
     - '*.kuwo.cn'
@@ -276,11 +279,11 @@ proxy-providers:
 
   # 此处只是订阅示例，如果没有订阅链接的使用需求，此处及 proxy-groups 的相关内容可删除
 
-  MyList:
+  MyList1:
     type: http
-    url: "#Insert sub URL here#"
+    url: "#Insert sub URL 1 here#"
     interval: 28800
-    path: ./Proxy/MyList.yaml # 注意此处文件名不可相同
+    path: ./Proxy/MyList1.yaml # 注意此处文件名不可相同
     health-check:
       enable: true
       interval: 600
@@ -291,6 +294,16 @@ proxy-providers:
     url: "#Insert sub URL 2 here#"
     interval: 28800
     path: ./Proxy/MyList2.yaml # 注意此处文件名不可相同
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+
+  MyList3:
+    type: http
+    url: "#Insert sub URL 3 here#"
+    interval: 28800
+    path: ./Proxy/MyList3.yaml # 注意此处文件名不可相同
     health-check:
       enable: true
       interval: 600
@@ -338,8 +351,9 @@ proxy-groups:
   - name: "Select"
     type: select # 亦可使用 fallback 或 load-balance
     use: # 注意此处是「use」
-      - MyList # 这是上面「proxy-providers」的名称
+      - MyList1 # 这是上面「proxy-providers」的名称
       - MyList2 # 这是上面「proxy-providers」的名称
+      - MyList3 # 这是上面「proxy-providers」的名称
 
   # - name: "US"
   #   type: select # 亦可使用 fallback 或 load-balance
@@ -350,8 +364,9 @@ proxy-groups:
   - name: "Fastest"
     type: url-test
     use:
-      - MyList
+      - MyList1
       - MyList2
+      - MyList3
     url: 'http://www.gstatic.com/generate_204'
     interval: 1800
     tolerance: 100
@@ -360,8 +375,9 @@ proxy-groups:
   - name: "Fallback"
     type: fallback
     use:
-      - MyList
+      - MyList1
       - MyList2
+      - MyList3
     url: 'http://www.gstatic.com/generate_204'
     interval: 1800
 
@@ -376,8 +392,9 @@ proxy-groups:
   - name: "FCMPROXY"
     type: select
     use:
-      - MyList
+      - MyList1
       - MyList2
+      - MyList3
 
   # 白名单模式 PROXY, 黑名单模式 DIRECT, 不知道别动
   - name: "MATCH"
@@ -445,8 +462,9 @@ proxy-groups:
   - name: "Gmail"
     type: select
     use:
-      - MyList
+      - MyList1
       - MyList2
+      - MyList3
 
   # Wechat Push
   - name: "WechatPush"
