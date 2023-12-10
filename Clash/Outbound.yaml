@@ -299,16 +299,6 @@ proxy-providers:
       interval: 600
       url: http://www.gstatic.com/generate_204
 
-  MyList3:
-    type: http
-    url: "#Insert sub URL 3 here#"
-    interval: 28800
-    path: ./Proxy/MyList3.yaml # 注意此处文件名不可相同
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
-
   # DuckDuckGoUS: #「冲鸭机场」订阅美国地区节点
   #   type: http
   #   url: "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/ProxyList/US.yaml" # 放机场订阅链接
@@ -353,7 +343,6 @@ proxy-groups:
     use: # 注意此处是「use」
       - MyList1 # 这是上面「proxy-providers」的名称
       - MyList2 # 这是上面「proxy-providers」的名称
-      - MyList3 # 这是上面「proxy-providers」的名称
 
   # - name: "US"
   #   type: select # 亦可使用 fallback 或 load-balance
@@ -366,7 +355,6 @@ proxy-groups:
     use:
       - MyList1
       - MyList2
-      - MyList3
     url: 'http://www.gstatic.com/generate_204'
     interval: 1800
     tolerance: 100
@@ -377,7 +365,6 @@ proxy-groups:
     use:
       - MyList1
       - MyList2
-      - MyList3
     url: 'http://www.gstatic.com/generate_204'
     interval: 1800
 
@@ -394,7 +381,6 @@ proxy-groups:
     use:
       - MyList1
       - MyList2
-      - MyList3
 
   # 白名单模式 PROXY, 黑名单模式 DIRECT, 不知道别动
   - name: "MATCH"
@@ -464,7 +450,6 @@ proxy-groups:
     use:
       - MyList1
       - MyList2
-      - MyList3
 
   # Wechat Push
   - name: "WechatPush"
